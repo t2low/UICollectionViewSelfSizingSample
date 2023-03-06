@@ -11,7 +11,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="UICollectionViewSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="JeC-pt-TvH" id="zrg-kZ-x9J"/>
+                        <outlet property="collectionView" destination="JeC-pt-TvH" id="As6-T1-S56"/>
+                        <outlet property="flowLayout" destination="LOR-jl-BWB" id="UhK-bU-krz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

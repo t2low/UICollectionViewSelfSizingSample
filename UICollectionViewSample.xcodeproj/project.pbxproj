@@ -13,6 +13,8 @@
 		DA92BDA129B638E300F88A13 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA92BD9F29B638E300F88A13 /* MainViewController.storyboard */; };
 		DA92BDA329B638E400F88A13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA92BDA229B638E400F88A13 /* Assets.xcassets */; };
 		DA92BDA629B638E400F88A13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA92BDA429B638E400F88A13 /* LaunchScreen.storyboard */; };
+		DA92BDAF29B63F0000F88A13 /* SampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA92BDAD29B63F0000F88A13 /* SampleCollectionViewCell.swift */; };
+		DA92BDB029B63F0000F88A13 /* SampleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA92BDAE29B63F0000F88A13 /* SampleCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		DA92BDA229B638E400F88A13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA92BDA529B638E400F88A13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA92BDA729B638E400F88A13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA92BDAD29B63F0000F88A13 /* SampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCollectionViewCell.swift; sourceTree = "<group>"; };
+		DA92BDAE29B63F0000F88A13 /* SampleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			children = (
 				DA92BD9929B638E300F88A13 /* AppDelegate.swift */,
 				DA92BD9B29B638E300F88A13 /* SceneDelegate.swift */,
+				DA92BDAD29B63F0000F88A13 /* SampleCollectionViewCell.swift */,
+				DA92BDAE29B63F0000F88A13 /* SampleCollectionViewCell.xib */,
 				DA92BD9D29B638E300F88A13 /* MainViewController.swift */,
 				DA92BD9F29B638E300F88A13 /* MainViewController.storyboard */,
 				DA92BDA229B638E400F88A13 /* Assets.xcassets */,
@@ -127,6 +133,7 @@
 			files = (
 				DA92BDA629B638E400F88A13 /* LaunchScreen.storyboard in Resources */,
 				DA92BDA329B638E400F88A13 /* Assets.xcassets in Resources */,
+				DA92BDB029B63F0000F88A13 /* SampleCollectionViewCell.xib in Resources */,
 				DA92BDA129B638E300F88A13 /* MainViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +147,7 @@
 			files = (
 				DA92BD9E29B638E300F88A13 /* MainViewController.swift in Sources */,
 				DA92BD9A29B638E300F88A13 /* AppDelegate.swift in Sources */,
+				DA92BDAF29B63F0000F88A13 /* SampleCollectionViewCell.swift in Sources */,
 				DA92BD9C29B638E300F88A13 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
