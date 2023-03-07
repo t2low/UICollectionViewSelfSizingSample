@@ -8,12 +8,14 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    private enum Section: CaseIterable {
-        case messages
+    private struct Message: Hashable {
+        let id: Int
+        let text: String
+        var isStar: Bool
     }
 
-    private enum Item: Hashable {
-        case message(Int, String, Bool)
+    private enum Section: CaseIterable {
+        case messages
     }
 
     private static let messageCellName = "SampleCollectionViewCell"
@@ -31,15 +33,14 @@ class MainViewController: UIViewController {
     }
 
     private lazy var messages = self.generateItems()
-    private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
-        switch identifier {
-        case .message(let number, let message, let isStar):
-            var cell = collectionView.dequeueReusableCell(withReuseIdentifier: Self.messageCellName, for: indexPath) as! SampleCollectionViewCell
-            cell.message = "\(number): \(message)"
-            cell.isStar = isStar
+    private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: Self.messageCellName, for: indexPath) as! SampleCollectionViewCell
+        if let message = self?.messages[identifier] {
+            cell.message = "\(message.id): \(message.text)"
+            cell.isStar = message.isStar
             cell.maxWidth = collectionView.bounds.width - 32
-            return cell
         }
+        return cell
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -47,14 +48,14 @@ class MainViewController: UIViewController {
         applyMessages()
     }
 
-    private func generateItems() -> [Item] {
-        (0..<20).map { .message($0, String(repeating: "サンプルテキスト ", count: Int.random(in: 1..<8)), false) }
+    private func generateItems() -> [Message] {
+        (0..<20).map { Message(id: $0, text: String(repeating: "サンプルテキスト ", count: Int.random(in: 1..<8)), isStar: false) }
     }
 
     private func applyMessages() {
-        var snapShot = NSDiffableDataSourceSnapshot<Section, Item>()
+        var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapShot.appendSections(Section.allCases)
-        snapShot.appendItems(messages)
+        snapShot.appendItems(messages.map { $0.id })
         dataSource.apply(snapShot)
     }
 }
