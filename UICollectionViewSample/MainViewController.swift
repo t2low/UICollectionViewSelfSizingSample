@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
         var isStar: Bool
     }
 
-    private enum Section: CaseIterable {
+    private enum Section: Int, CaseIterable {
         case messages
     }
 
@@ -39,7 +39,10 @@ class MainViewController: UIViewController {
             cell.message = "\(message.id): \(message.text)"
             cell.isStar = message.isStar
             cell.maxWidth = collectionView.bounds.width - 32
-            cell.starTapped = { self?.toggleStar(id: message.id) }
+            cell.starTapped = {
+                self?.toggleStar(id: message.id)
+                self?.scrollToFirstUnstarCell()
+            }
         }
         return cell
     }
@@ -67,6 +70,12 @@ class MainViewController: UIViewController {
         var snapshot = dataSource.snapshot()
         snapshot.reconfigureItems([id])
         dataSource.apply(snapshot)
+    }
+
+    private func scrollToFirstUnstarCell() {
+        guard let firstUnstarIndex = messages.firstIndex(where: { !$0.isStar }) else { return }
+        let indexPath = IndexPath(item: firstUnstarIndex, section: Section.messages.rawValue)
+        collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
     }
 }
 
