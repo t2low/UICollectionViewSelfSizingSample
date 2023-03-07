@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     }
 
     private enum Item: Hashable {
-        case message(Int, String)
+        case message(Int, String, Bool)
     }
 
     private static let messageCellName = "SampleCollectionViewCell"
@@ -38,9 +38,10 @@ class MainViewController: UIViewController {
     ]
     private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
         switch identifier {
-        case .message(let number, let message):
+        case .message(let number, let message, let isStar):
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: Self.messageCellName, for: indexPath) as! SampleCollectionViewCell
             cell.message = "\(number): \(message)"
+            cell.isStar = isStar
             cell.maxWidth = collectionView.bounds.width - 32
             return cell
         }
@@ -54,7 +55,7 @@ class MainViewController: UIViewController {
     private func applyMessages() {
         var snapShot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapShot.appendSections(Section.allCases)
-        snapShot.appendItems(messages.enumerated().map { index, message in Item.message(index, message) })
+        snapShot.appendItems(messages.enumerated().map { index, message in Item.message(index, message, false) })
         dataSource.apply(snapShot)
     }
 }
