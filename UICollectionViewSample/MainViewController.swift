@@ -30,12 +30,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    private var messages = [
-        "サンプルテキスト サンプルテキスト サンプルテキスト サンプルテキスト",
-        "サンプルテキスト サンプルテキスト サンプルテキスト",
-        "サンプルテキスト サンプルテキスト サンプルテキスト サンプルテキスト",
-        "サンプルテキスト サンプルテキスト",
-    ]
+    private lazy var messages = self.generateItems()
     private lazy var dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView) { [weak self] collectionView, indexPath, identifier in
         switch identifier {
         case .message(let number, let message, let isStar):
@@ -52,10 +47,14 @@ class MainViewController: UIViewController {
         applyMessages()
     }
 
+    private func generateItems() -> [Item] {
+        (0..<20).map { .message($0, String(repeating: "サンプルテキスト ", count: Int.random(in: 1..<8)), false) }
+    }
+
     private func applyMessages() {
         var snapShot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapShot.appendSections(Section.allCases)
-        snapShot.appendItems(messages.enumerated().map { index, message in Item.message(index, message, false) })
+        snapShot.appendItems(messages)
         dataSource.apply(snapShot)
     }
 }
