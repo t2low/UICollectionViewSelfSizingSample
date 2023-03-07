@@ -39,6 +39,7 @@ class MainViewController: UIViewController {
             cell.message = "\(message.id): \(message.text)"
             cell.isStar = message.isStar
             cell.maxWidth = collectionView.bounds.width - 32
+            cell.starTapped = { self?.toggleStar(id: message.id) }
         }
         return cell
     }
@@ -57,6 +58,15 @@ class MainViewController: UIViewController {
         snapShot.appendSections(Section.allCases)
         snapShot.appendItems(messages.map { $0.id })
         dataSource.apply(snapShot)
+    }
+
+    private func toggleStar(id: Int) {
+        guard 0..<messages.count ~= id else { return }
+        messages[id].isStar = !messages[id].isStar
+
+        var snapshot = dataSource.snapshot()
+        snapshot.reconfigureItems([id])
+        dataSource.apply(snapshot)
     }
 }
 
