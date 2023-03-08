@@ -41,6 +41,7 @@ class MainViewController: UIViewController {
             cell.maxWidth = collectionView.bounds.width - 32
             cell.starTapped = {
                 self?.toggleStar(id: message.id)
+                self?.updateCell(id: message.id)
                 self?.scrollToFirstUnstarCell()
             }
         }
@@ -66,10 +67,17 @@ class MainViewController: UIViewController {
     private func toggleStar(id: Int) {
         guard 0..<messages.count ~= id else { return }
         messages[id].isStar = !messages[id].isStar
+    }
 
-        var snapshot = dataSource.snapshot()
-        snapshot.reconfigureItems([id])
-        dataSource.apply(snapshot)
+    private func updateCell(id: Int) {
+        guard 0..<messages.count ~= id else { return }
+
+        // datasource.reconfigureItems() が iOS 15 以上必要だったため、直接セルを更新
+        // 参考: https://qiita.com/zrn-ns/items/dd13d0e69c07ded20ce9
+        if let indexPath = dataSource.indexPath(for: id),
+           let cell = collectionView.cellForItem(at: indexPath) as? SampleCollectionViewCell {
+            cell.isStar = messages[id].isStar
+        }
     }
 
     private func scrollToFirstUnstarCell() {
@@ -78,4 +86,3 @@ class MainViewController: UIViewController {
         collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
     }
 }
-
