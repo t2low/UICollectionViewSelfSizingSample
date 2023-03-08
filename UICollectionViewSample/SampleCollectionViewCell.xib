@@ -29,10 +29,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CE0-vX-rX8">
                                 <rect key="frame" x="144" y="106" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="8tW-lU-bx4"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="RjW-JI-vN1"/>
                                     <constraint firstAttribute="width" constant="48" id="j2h-T2-Lis"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="48" id="viy-iO-74e"/>
                                     <constraint firstAttribute="height" constant="48" id="yPJ-uG-rKf"/>
                                 </constraints>
                             </imageView>
