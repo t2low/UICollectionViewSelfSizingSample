@@ -72,11 +72,12 @@ class MainViewController: UIViewController {
     private func updateCell(id: Int) {
         guard 0..<messages.count ~= id else { return }
 
-        // datasource.reconfigureItems() が iOS 15 以上必要だったため、直接セルを更新
+        // snapshot.reconfigureItems() が iOS 15 以上必要だったため、直接セルを更新
         // 参考: https://qiita.com/zrn-ns/items/dd13d0e69c07ded20ce9
         if let indexPath = dataSource.indexPath(for: id),
            let cell = collectionView.cellForItem(at: indexPath) as? SampleCollectionViewCell {
             cell.isStar = messages[id].isStar
+            cell.invalidateIntrinsicContentSize()
         }
     }
 
