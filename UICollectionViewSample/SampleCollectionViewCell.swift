@@ -18,6 +18,11 @@ class SampleCollectionViewCell: UICollectionViewCell {
             addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(starImageTapped)))
         }
     }
+    @IBOutlet private weak var subTextLabel: UILabel! {
+        didSet {
+            subTextLabel.text = "サブテキスト"
+        }
+    }
     @IBOutlet private var maxWidthConstraint: NSLayoutConstraint! {
         didSet {
             maxWidthConstraint.isActive = false
