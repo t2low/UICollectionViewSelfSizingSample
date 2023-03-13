@@ -33,24 +33,35 @@
                                     <constraint firstAttribute="height" constant="48" id="yPJ-uG-rKf"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGz-pO-cGU">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tDf-ZL-Tpg">
                                 <rect key="frame" x="16" y="116.33333333333331" width="304" height="72.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGz-pO-cGU" userLabel="Title Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="52.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PI-I1-ruI">
+                                        <rect key="frame" x="0.0" y="52.333333333333329" width="304" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="336" id="1Wl-qa-Cko"/>
-                            <constraint firstItem="uGz-pO-cGU" firstAttribute="width" secondItem="yqb-uB-s3U" secondAttribute="width" constant="-32" id="IT0-Ct-QYu"/>
-                            <constraint firstItem="uGz-pO-cGU" firstAttribute="top" secondItem="CE0-vX-rX8" secondAttribute="bottom" constant="16" id="JyR-E9-sNd"/>
-                            <constraint firstItem="uGz-pO-cGU" firstAttribute="centerX" secondItem="yqb-uB-s3U" secondAttribute="centerX" id="Tf1-cd-nqA"/>
+                            <constraint firstAttribute="bottom" secondItem="tDf-ZL-Tpg" secondAttribute="bottom" constant="16" id="boc-73-1S2"/>
                             <constraint firstItem="CE0-vX-rX8" firstAttribute="top" secondItem="Hzd-Tq-HKd" secondAttribute="bottom" constant="16" id="fnw-WT-4AY"/>
+                            <constraint firstItem="tDf-ZL-Tpg" firstAttribute="centerX" secondItem="yqb-uB-s3U" secondAttribute="centerX" id="he3-I4-IDe"/>
                             <constraint firstItem="Hzd-Tq-HKd" firstAttribute="top" secondItem="yqb-uB-s3U" secondAttribute="top" constant="16" id="imL-Mi-vu3"/>
                             <constraint firstItem="Hzd-Tq-HKd" firstAttribute="centerX" secondItem="yqb-uB-s3U" secondAttribute="centerX" id="lyY-T7-hdD"/>
-                            <constraint firstAttribute="bottom" secondItem="uGz-pO-cGU" secondAttribute="bottom" constant="16" id="nIL-6F-la8"/>
                             <constraint firstItem="CE0-vX-rX8" firstAttribute="centerX" secondItem="yqb-uB-s3U" secondAttribute="centerX" id="oh0-LW-JaX"/>
+                            <constraint firstItem="tDf-ZL-Tpg" firstAttribute="top" secondItem="CE0-vX-rX8" secondAttribute="bottom" constant="16" id="pfO-xm-jeP"/>
+                            <constraint firstItem="tDf-ZL-Tpg" firstAttribute="width" secondItem="yqb-uB-s3U" secondAttribute="width" constant="-32" id="qhT-am-Rgi"/>
                             <constraint firstItem="Hzd-Tq-HKd" firstAttribute="width" secondItem="yqb-uB-s3U" secondAttribute="width" constant="-32" id="wou-OV-tL1"/>
                         </constraints>
                     </view>
@@ -73,7 +84,8 @@
                 <outlet property="maxWidthConstraint" destination="1Wl-qa-Cko" id="Rw7-GO-Hd0"/>
                 <outlet property="messageLabel" destination="Hzd-Tq-HKd" id="RsU-MD-yQC"/>
                 <outlet property="starImageView" destination="CE0-vX-rX8" id="OBc-Ec-fTv"/>
-                <outlet property="subTextLabel" destination="uGz-pO-cGU" id="u9P-GO-Wyw"/>
+                <outlet property="subTitleLabel" destination="2PI-I1-ruI" id="It8-mG-j4U"/>
+                <outlet property="titleLabel" destination="uGz-pO-cGU" id="LgX-0Z-4Zy"/>
             </connections>
             <point key="canvasLocation" x="356.92307692307691" y="94.194312796208521"/>
         </collectionViewCell>

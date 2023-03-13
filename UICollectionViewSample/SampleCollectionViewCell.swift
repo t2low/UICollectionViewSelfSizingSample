@@ -18,9 +18,14 @@ class SampleCollectionViewCell: UICollectionViewCell {
             addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(starImageTapped)))
         }
     }
-    @IBOutlet private weak var subTextLabel: UILabel! {
+    @IBOutlet private weak var titleLabel: UILabel! {
         didSet {
-            subTextLabel.text = "サブテキスト"
+            titleLabel.text = "タイトル"
+        }
+    }
+    @IBOutlet private weak var subTitleLabel: UILabel! {
+        didSet {
+            subTitleLabel.text = "サブタイトル"
         }
     }
     @IBOutlet private var maxWidthConstraint: NSLayoutConstraint! {
@@ -38,6 +43,7 @@ class SampleCollectionViewCell: UICollectionViewCell {
     var isStar: Bool = true {
         didSet {
             starImageView.image = isStar ? Self.starFillImage : Self.starImage
+            titleLabel.isHidden = !isStar
         }
     }
 
